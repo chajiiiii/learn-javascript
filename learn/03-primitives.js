@@ -56,3 +56,11 @@ console.log(null);
 console.log(Symbol());
 console.log(Symbol(2025));
 console.log(Symbol("고유 식별자"));
+
+// ---------------------------
+// BigInt
+// JS가 표현 가능한 정수 안전범위 이상의 숫자값을 표현할 때
+
+console.log(BigInt(Number.MAX_SAFE_INTEGER + 10));
+// 숫자 뒤에 n만 붙여도 BigInt로 인식
+console.log(10000n);
