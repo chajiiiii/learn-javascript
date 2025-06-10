@@ -41,3 +41,10 @@ true; // boolean
 
 undefined;
 console.log(undefined);
+
+// ---------------------------
+// Null
+// 비어있다 라는 의미로 씀
+
+null;
+console.log(null);
