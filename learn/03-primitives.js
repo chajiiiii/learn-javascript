@@ -33,3 +33,11 @@ console.log(Number.MAX_SAFE_INTEGER);
 
 true; // boolean
 ("true"); // string
+
+// ---------------------------
+// Undefined
+
+// 선언 된 변수의 기본값으로 사용 됨
+
+undefined;
+console.log(undefined);
