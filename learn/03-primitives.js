@@ -48,3 +48,11 @@ console.log(undefined);
 
 null;
 console.log(null);
+
+// ---------------------------
+// Symbol
+// number or string. 고유성 보장.
+
+console.log(Symbol());
+console.log(Symbol(2025));
+console.log(Symbol("고유 식별자"));
