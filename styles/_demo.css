@@ -1,0 +1,31 @@
+@import "./_theme.css";
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  min-block-size: 100vh;
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  margin: 0;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 2.65rem;
+}
+
+#exorcist-characters {
+  list-style: none;
+  padding-inline-start: 0;
+
+  li {
+    padding: 4px;
+
+    &.active {
+      font-weight: 900;
+      color: var(--yellow-800);
+    }
+  }
+}
