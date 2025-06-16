@@ -50,8 +50,11 @@ function message() {
   console.log("clicked function clicked!");
 }
 
-// 매개변수로 온 함수에 ()를 붙이면 안되는 이유!!!
+// 인수로 온 함수(콜백함수)에 ()를 붙이면 안되는 이유!!!
 // 위의 함수 자체는 return이 없어서 undefined로 나오기 때문에
-// 괄호를 붙이면 그 함수의 실행된 값을 주기 때문에 undefined로 옴
-// 그래서 매개변수로 왔을때는 괄호를 붙이지 않고 넣어야 함.
+// 괄호를 붙이면 그 함수의 실행된 값을 주기 때문에 undefined로 옴.
+// 그. 러. 나.
+// return이 있더라도 그건 함수 실행 값을 주는것이기 때문에
+// 인수로 콜백함수가 왔을때는 함수값이 아닌 함수 그 자체를 넣어야 하기 때문에
+// 괄호를 붙이지 않고 넣어야 함.
 clickableButton2.addEventListener("click", message);
