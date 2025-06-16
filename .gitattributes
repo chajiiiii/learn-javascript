@@ -1,0 +1,6 @@
+* text eol=lfAdd commentMore actions
+*.png binary
+*.jpg binary
+*.gif binary
+*.avif binary
+*.webp binary
