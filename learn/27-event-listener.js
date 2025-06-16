@@ -27,3 +27,13 @@ clickableButton.addEventListener("click", () => {
   document.body.classList.toggle("is-active");
   clickableButton.classList.toggle("is-active");
 });
+
+clickableButton.addEventListener("click", (e) => {
+  // addEventListener()에 전달된 함수(값) 즉, 이벤트 리스너는
+  // event 객체를 매개변수로 전달 받는다.
+
+  console.log("이벤트 객체: ", e);
+
+  document.body.classList.toggle("is-active");
+  clickableButton.classList.toggle("is-active");
+});
