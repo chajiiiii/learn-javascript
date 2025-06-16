@@ -33,7 +33,25 @@ clickableButton.addEventListener("click", (e) => {
   // event 객체를 매개변수로 전달 받는다.
 
   console.log("이벤트 객체: ", e);
-
-  document.body.classList.toggle("is-active");
-  clickableButton.classList.toggle("is-active");
 });
+
+// ----------------------------------
+// 실습
+
+const clickableButton2 = document.querySelector(".clickable2");
+
+clickableButton2.addEventListener("click", () => console.log("clicked!"));
+clickableButton2.addEventListener("click", () => {
+  clickableButton2.classList.toggle("hehe");
+  console.log(clickableButton2.classList.value);
+});
+
+function message() {
+  console.log("clicked function clicked!");
+}
+
+// 매개변수로 온 함수에 ()를 붙이면 안되는 이유!!!
+// 위의 함수 자체는 return이 없어서 undefined로 나오기 때문에
+// 괄호를 붙이면 그 함수의 실행된 값을 주기 때문에 undefined로 옴
+// 그래서 매개변수로 왔을때는 괄호를 붙이지 않고 넣어야 함.
+clickableButton2.addEventListener("click", message);
