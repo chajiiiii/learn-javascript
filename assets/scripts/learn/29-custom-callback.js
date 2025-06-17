@@ -18,6 +18,24 @@ const handleClick = () => console.log("clicked button");
 
 click(button, handleClick);
 
-function click(element, listener) {
-  element.addEventListener("click", listener);
-}
+// ---------------------------------
+// mouse enter
+
+// button.addEventListener("mouseenter", () => {
+//   console.log("enter");
+// });
+
+const handleMouse = () => {
+  console.log("mouse entered!");
+};
+
+mouseenter(button, handleMouse);
+
+// ---------------------------------
+// mouse leave
+
+const handleLeave = () => {
+  console.log("Mouse left!");
+};
+
+mouseLeave(button, handleLeave);
