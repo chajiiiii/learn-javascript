@@ -81,4 +81,5 @@ button.addEventListener("click", () => {
   document.body.classList.toggle("is-active");
 });
 
-// 함수에 Web API가 콜백함수를 가지고 있는 경우에만 콜스택에 쌓이고 비동기로 처리 됨
+// 함수에 Web API가 콜백함수를 가지고,
+// 그 함수가 비동기적으로 실행되는 경우에만 콜스택에 쌓임
