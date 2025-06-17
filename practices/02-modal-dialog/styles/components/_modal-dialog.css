@@ -1,0 +1,72 @@
+.point-hand {
+  position: absolute;
+  left: 0;
+  right: 0;
+  max-inline-size: 3em;
+  margin: 1em auto 0;
+  color: var(--modal-text-color);
+}
+
+.modal-overlay {
+  .modal-is-open & {
+    opacity: 1;
+    z-index: 1000;
+  }
+  /* 위 코드 .modal-is-open & 왜 클래스 뒤에 &이 붙었냐하면*/
+  /* modal-is-open 이라는 조상 클래스 안에 있는 */
+  /* modal-overlay 클래스를 조종하는거임. 문법이. */
+  /* .modal-is-open .modal-overlay 이렇게 쓸 수 도 있음 */
+
+  /* opacity: 1, z-index: 1000 는 */
+  /* modal-is-open 안에 있는 modal-overlay를 조종하는 코드라고 보면 됨 */
+  /* 그래서 modal-is-open 클래스가 body에 생기면 */
+  /* modal-overlay 클래스의 opacity가 1로 바뀌고 z-index가 1000으로 바뀜 */
+
+  opacity: 0;
+  z-index: -1;
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background-color: var(--modal-overlay-background-color);
+
+  .modal-dialog {
+    display: grid;
+    place-items: center;
+    position: relative;
+    border-radius: 4px;
+    background-color: var(--dialog-background-color);
+    box-shadow: 0 2px 4px 2px var(--modal-shadow-color);
+    color: var(--modal-text-color);
+    min-inline-size: 50vmin;
+    min-block-size: 50vmin;
+  }
+
+  .modal-close-button {
+    .modal-dialog:hover & {
+      opacity: 1;
+    }
+
+    opacity: 0;
+    position: absolute;
+    top: -1.5em;
+    right: -1.5em;
+    padding: 1em 1em;
+    font-size: 0.6em;
+    border-radius: 50%;
+    border: 2px solid var(--dialog-close-button-background-color);
+    background: var(--dialog-close-button-background-color);
+    color: var(--dialog-close-button-color);
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+      background: var(--dialog-close-button-hover-background-color);
+      border-color: var(--dialog-close-button-hover-background-color);
+    }
+  }
+}
