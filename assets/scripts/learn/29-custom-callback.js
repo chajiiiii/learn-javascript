@@ -1,3 +1,5 @@
+/* global mouseenter, mouseleave, click */
+
 function callToAction(callback) {
   callback();
 }
@@ -38,4 +40,4 @@ const handleLeave = () => {
   console.log("Mouse left!");
 };
 
-mouseLeave(button, handleLeave);
+mouseleave(button, handleLeave);
