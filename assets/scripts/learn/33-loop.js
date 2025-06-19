@@ -112,3 +112,24 @@ while (wantToDraw) {
 
   console.log("last count =", i);
 }
+
+// --------------------------------------------------------------------------
+// do ... while
+
+{
+  let condition = false;
+  do {
+    console.log("do while");
+  } while (condition);
+}
+
+{
+  let userInput;
+
+  do {
+    userInput = parseInt(prompt("1부터 10까지 입력"), 10);
+    if (Number.isNaN(userInput) || userInput < 1 || userInput > 10) {
+      console.error("1부터 10까지 입력");
+    }
+  } while (Number.isNaN(userInput) || userInput < 1 || userInput > 10);
+}
