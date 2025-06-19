@@ -124,12 +124,24 @@ while (wantToDraw) {
 }
 
 {
-  let userInput;
-
-  do {
-    userInput = parseInt(prompt("1부터 10까지 입력"), 10);
-    if (Number.isNaN(userInput) || userInput < 1 || userInput > 10) {
-      console.error("1부터 10까지 입력");
-    }
-  } while (Number.isNaN(userInput) || userInput < 1 || userInput > 10);
+  // let userInput;
+  // do {
+  //   userInput = parseInt(prompt("1부터 10까지 입력"), 10);
+  //   if (Number.isNaN(userInput) || userInput < 1 || userInput > 10) {
+  //     console.error("1부터 10까지 입력");
+  //   }
+  // } while (Number.isNaN(userInput) || userInput < 1 || userInput > 10);
 }
+
+// --------------------------------------------------------------------------
+// IIFE(Immediately Invoked Function Expression)
+
+// const lookMe = function () {
+//   console.log("look at me!");
+// };
+
+// lookMe();
+
+(function () {
+  console.log("look at me!");
+})();
