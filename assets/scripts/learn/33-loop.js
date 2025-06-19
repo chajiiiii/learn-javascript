@@ -202,3 +202,58 @@ while (wantToDraw) {
     console.log(students[i].이름);
   }
 }
+
+// --------------------------------------------------------------------------
+// for of 문
+// Array, String, TypedArray, Map, Set, NodeList, DOM collections, arguments
+{
+  const str = "All you need is love";
+
+  for (const char of str) {
+    console.log(char);
+  }
+
+  const students = [
+    { 이름: "홍민영" },
+    { 이름: "윤정화" },
+    { 이름: "허시온" },
+    { 이름: "조선현" },
+    { 이름: "성정현" },
+    { 이름: "조장원" },
+    { 이름: "차지현" },
+    { 이름: "김동규" },
+    { 이름: "이성은" },
+    { 이름: "고우현" },
+  ];
+
+  // for문을 사용해 수강생의 이름을 콘솔 패널에 출력
+  for (const student of students) {
+    if (student.이름 === "성정현" || student.이름 === "김동규") continue;
+
+    console.log(student.이름);
+    if (student.이름 === "이성은") break;
+  }
+}
+
+// --------------------------------------------------------------------------
+// for in 문. object 전용
+
+{
+  const webTech = {
+    html: "hyper text markup language",
+    css: "cascading style sheet",
+    javascript: "programming language",
+  };
+
+  console.log(webTech["css"]);
+
+  for (const key in webTech) {
+    // key 이름 반환
+    console.log(key);
+
+    // 키의 값도 얻고싶다면 webTech obj의 대괄호 표기법으로 접근하여 value를 얻어냄
+    // obj[key] 하면 해당 키의 value가 나옴
+    const value = webTech[key];
+    console.log(key, value);
+  }
+}
