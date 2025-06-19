@@ -64,9 +64,51 @@ while (wantToDraw) {
 // let userInput = parseInt(prompt("1부터 10까지 입력"), 10);
 // console.log(userInput, typeof userInput);
 
-let userInput = parseInt(prompt("1부터 10까지 입력"), 10);
+// let userInput = parseInt(prompt("1부터 10까지 입력"), 10);
 
-while (Number.isNaN(userInput) || userInput < 1 || userInput > 10) {
-  console.error("1부터 10까지 입력");
-  userInput = parseInt(prompt("1부터 10까지 입력"), 10);
+// while (Number.isNaN(userInput) || userInput < 1 || userInput > 10) {
+//   console.error("1부터 10까지 입력");
+//   userInput = parseInt(prompt("1부터 10까지 입력"), 10);
+// }
+
+// --------------------------------------------------------------------------
+// continue
+{
+  let drawCount = 20;
+  let i = 0;
+
+  const draw2 = (n) => {
+    console.log("도화지에 그림을 그린 횟수", n);
+  };
+
+  while (i++ < drawCount /* 0부터 10, continue, 16부터 19 */) {
+    if (i > 10 && i <= 15) {
+      continue;
+    }
+
+    draw2(i);
+  }
+
+  console.log("last count =", i);
+}
+
+// --------------------------------------------------------------------------
+// break
+{
+  let drawCount = 20;
+  let i = 0;
+
+  const draw2 = (n) => {
+    console.log("도화지에 그림을 그린 횟수", n);
+  };
+
+  while (i++ < drawCount) {
+    if (i === 5) {
+      break;
+    }
+
+    draw2(i);
+  }
+
+  console.log("last count =", i);
 }
