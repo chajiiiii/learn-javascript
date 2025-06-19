@@ -74,22 +74,18 @@ while (wantToDraw) {
 // --------------------------------------------------------------------------
 // continue
 {
-  let drawCount = 20;
-  let i = 0;
-
-  const draw2 = (n) => {
-    console.log("도화지에 그림을 그린 횟수", n);
-  };
-
-  while (i++ < drawCount /* 0부터 10, continue, 16부터 19 */) {
-    if (i > 10 && i <= 15) {
-      continue;
-    }
-
-    draw2(i);
-  }
-
-  console.log("last count =", i);
+  // let drawCount = 20;
+  // let i = 0;
+  // const draw2 = (n) => {
+  //   console.log("도화지에 그림을 그린 횟수", n);
+  // };
+  // while (i++ < drawCount /* 0부터 10, continue, 16부터 19 */) {
+  //   if (i > 10 && i <= 15) {
+  //     continue;
+  //   }
+  //   draw2(i);
+  // }
+  // console.log("last count =", i);
 }
 
 // --------------------------------------------------------------------------
@@ -145,3 +141,64 @@ while (wantToDraw) {
 (function () {
   console.log("look at me!");
 })();
+
+// --------------------------------------------------------------------------
+// for 문
+{
+  // 방법 1
+  for (let i = 0; i < 10; ++i) {
+    console.log("for 문");
+  }
+
+  // 방법 2
+  let y = 0;
+
+  for (; y < 10; ) {
+    ++y;
+    console.log("for 문 y");
+  }
+}
+
+{
+  const numbers = [11, 22, 33, 44, 55, 66];
+
+  // 33인 값(인덱스)에서 멈추기
+
+  for (let i = 0; i < numbers.length; i = i + 1) {
+    let number = numbers[i];
+    console.log(number);
+  }
+}
+
+// for 문의 변형
+{
+  // const numbers = [11, 22, 33, 44, 55, 66, 77, 88, 99];
+  // for (let i = 0, number; (number = numbers[i]); i = i + 1) {
+  //   console.log(number);
+  // }
+}
+
+{
+  const fruitBasket = ["체리망고", "토마토", "스트로베리"];
+
+  for (let i = 0, l = fruitBasket.length; i < l; i++) {
+    console.log(fruitBasket[i]);
+  }
+
+  const students = [
+    { 이름: "홍민영" },
+    { 이름: "윤정화" },
+    { 이름: "허시온" },
+    { 이름: "조선현" },
+    { 이름: "성정현" },
+    { 이름: "조장원" },
+  ];
+
+  for (let i = 0; i < students.length; i++) {
+    console.log(students[i].이름);
+  }
+
+  for (let i = students.length - 1; i >= 0; i--) {
+    console.log(students[i].이름);
+  }
+}
