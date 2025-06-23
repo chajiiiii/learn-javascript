@@ -1,0 +1,11 @@
+.accordion {
+  &.is-open {
+    .accordion__content {
+      display: grid;
+    }
+  }
+
+  .accordion__content {
+    display: none;
+  }
+}
