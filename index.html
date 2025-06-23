@@ -42,10 +42,34 @@
     <!-- <script type="module" src="./learn/28-callbacks.js"></script> -->
     <!-- <script type="module" src="./assets/scripts/learn/29-custom-callback.js"></script>
     <script src="./assets/scripts/utilis/events.js"></script> -->
+      <style>
+        :root {
+          --theme-color: #0652dd;
+        }
+    
+        .themed-box {
+          background-color: var(--theme-color);
+          color: #fff;
+          padding: 20px;
+          transition: background-color 0.3s;
+        }
+
+        .box {
+          padding: 20px;
+          border: 1px solid #ccc;
+          margin-bottom: 10px;
+        }
+	</style>
   </head>
   <body>
     <div id="app">
       <h1>JavaScript 학습</h1>
+
+      <p class="box">이 텍스트의 스타일이 바뀔 거예요!</p>
+      <button type="button" class="change-style-button">스타일 변경</button>
+
+      <div class="themed-box">CSS 변수로 배경색을 설정했어요!</div>
+      <button type="button" class="change-theme-button">색상 변경</button>
       
       <button type="button" class="clickable">클릭 가능한 요소</button>
       
@@ -73,5 +97,6 @@
       <!-- <script src="./assets/scripts/learn/33-loop.js"></script> -->
       <!-- <script src="./assets/scripts/learn/34-forEach.js"></script> -->
       <!-- <script src="./assets/scripts/learn/35-select-multiple-elements.js"></script> -->
+      <script src="./assets/scripts/learn/36-element-style.js"></script>
   </body>
 </html>
