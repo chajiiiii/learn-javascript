@@ -118,3 +118,42 @@ const PRIMARY_KEY = "color-primary";
   console.log("NodeList(스태틱 콜렉션: 고정된 집합)", paragraphs.length);
   console.groupEnd();
 }
+
+// --------------------------------------------------------------------------
+// 실습
+
+// querySelectorAll() 메서드를 사용해 연습해보세요.
+
+const starWars = document.querySelector("#star-wars");
+console.log(starWars);
+// 1. 좋은 사람(Good Guy)을 모두 선택하세요.
+const goodGuys = starWars.querySelectorAll("[data-type='good-guy']");
+console.log(goodGuys);
+
+// 2. 좋은 사람(Good Guy) 모두에게 `excellent` 클래스 이름을 추가하세요.
+goodGuys.forEach((guy) => {
+  guy.classList.add("excellent");
+});
+
+// 3. 빌런(Villain)을 모두 선택하세요.
+const badGuys = starWars.querySelectorAll("[data-type='villain']");
+console.log(badGuys);
+
+// 4. 빌런 모두에게 `naughty` 클래스 이름을 추가하세요.
+// for (const guy of badGuys) {
+//   guy.classList.add("naughty");
+// }
+
+for (let i = 0; i < badGuys.length; i++) {
+  const badGuy = badGuys[i];
+  badGuy.classList.add("naughty");
+}
+
+// 5. 모든 캐릭터(Character)를 선택하세요.
+const allCharacters = starWars.querySelectorAll(".character");
+console.log(allCharacters);
+
+// 6. 모든 캐릭터에 `star-wars` 클래스 이름을 추가하세요.
+allCharacters.forEach((c) => {
+  c.classList.add("star-wars");
+});
