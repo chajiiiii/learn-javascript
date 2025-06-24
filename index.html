@@ -48,6 +48,33 @@
       }
       h1 {
         color: tan;
+        position: relative;
+
+        &::after {
+          content: "😎";
+          position: absolute;
+          top: -20px;
+          right: -50px;
+        }
+      }
+      .box {
+        width: 200px;
+        height: 100px;
+        background-color: #3498db;
+        color: white;
+        font-size: 18px;
+      }
+      .quote {
+        padding-left: 20px;
+        position: relative;
+        font-size: 1.2rem;
+        color: #2c3e50;
+
+        &::before {
+          content: "💬";
+          position: absolute;
+          left: 0;
+        }
       }
     </style>
   </head>
@@ -55,6 +82,12 @@
     <!-- <body style="background-color: maroon"> -->
     <h1>JavaScript</h1>
     <!-- <h1 style="color: tan">JavaScript</h1> -->
+
+    <p class="element" style="color: #e74c3c; font-size: 24px">
+      이 단락은 인라인 스타일을 가지고 있습니다.
+    </p>
+    <p class="box">스타일을 읽어보세요!</p>
+    <p class="quote">이것은 가상 요소가 포함된 인용문입니다.</p>
 
     <section hidden class="life-tips">
       <h2>생활 상식</h2>
