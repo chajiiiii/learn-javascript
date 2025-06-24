@@ -11,3 +11,7 @@ function mouseenter(element, listener) {
 function mouseLeave(element, listener) {
   element.addEventListener("mouseleave", listener);
 }
+
+function on(element, type, listener) {
+  element.addEventListener(type, listener);
+}
