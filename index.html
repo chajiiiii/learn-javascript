@@ -46,39 +46,16 @@
     <script src="./assets/scripts/utilis/query.js"></script>
     <script src="./assets/scripts/utilis/attr.js"></script>
     <style>
-      /* body {
-        background-color: maroon;
+      .product {
+        border: 1px solid #ccc;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        font-size: 1rem;
       }
-      h1 {
-        color: tan;
-        position: relative;
 
-        &::after {
-          content: "😎";
-          position: absolute;
-          top: -20px;
-          right: -50px;
-        }
+      .button {
+        margin-right: 0.5rem;
       }
-      .box {
-        width: 200px;
-        height: 100px;
-        background-color: #3498db;
-        color: white;
-        font-size: 18px;
-      }
-      .quote {
-        padding-left: 20px;
-        position: relative;
-        font-size: 1.2rem;
-        color: #2c3e50;
-
-        &::before {
-          content: "💬";
-          position: absolute;
-          left: 0;
-        }
-      } */
     </style>
   </head>
   <body>
@@ -93,6 +70,15 @@
       JavaScript
     </h1>
     <!-- <h1 style="color: tan">JavaScript</h1> -->
+
+    <div class="product" data-name="Red Sneakers" data-stock="3">
+      🛍️ 제품: <span class="name">레드 스니커스</span><br />
+      📦 재고: <span class="stock">3</span>
+    </div>
+
+    <button type="button" class="button" id="read">속성 읽기</button>
+    <button type="button" class="button" id="update">재고 수정</button>
+    <button type="button" class="button" id="remove">속성 제거</button>
 
     <p
       id="notice"
@@ -149,6 +135,7 @@
     <!-- <script src="./assets/scripts/learn/36-element-style.js"></script> -->
     <!-- <script src="./assets/scripts/learn/37-read-css-style.js"></script> -->
     <!-- <script src="./assets/scripts/learn/39-get-set-attribute.js"></script> -->
-    <script src="./assets/scripts/learn/40-using-attr-function.js"></script>
+    <!-- <script src="./assets/scripts/learn/40-using-attr-function.js"></script> -->
+    <script src="./assets/scripts/learn/41-custom-attribute-dataset.js"></script>
   </body>
 </html>
