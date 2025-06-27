@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 단계 비교</title>
+    <style>
+      .outer {
+        border: 4px solid pink;
+        padding: 30px;
+        &:hover {
+          background-color: gainsboro;
+        }
+
+        .middle {
+          border: inherit;
+          border-color: hotpink;
+          padding: inherit;
+          &:hover {
+            background-color: lightcyan;
+          }
+
+          .inner {
+            border: inherit;
+            border-color: lightblue;
+            padding: inherit;
+            &:hover {
+              background-color: lightgoldenrodyellow;
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="middle">
+        <div class="inner">이벤트 단계 비교</div>
+      </div>
+    </div>
+
+    <script>
+      {
+        // 이벤트 단계 비교
+        // 다음의 HTML 구조를 작성하고 이벤트를 연결해 단계 별 작동 흐름을 확인하는 연습을 진행합니다.
+
+        // 1. 모든 <div> 요소에 이벤트 리스너를 두 번씩(캡쳐링, 버블링 단계 수신) 등록하세요.
+        document.querySelectorAll("div").forEach((div) => {
+          // 캡쳐링 단계
+          div.addEventListener(
+            "click",
+            (e) => {
+              if (e.eventPhase === 2) {
+                console.log(
+                  "%c타겟: " + e.currentTarget.classList.value,
+                  "color: orange; background-color: rgba(255 150 0 / 0.1)"
+                );
+              } else {
+                console.log(
+                  "%c캡쳐링: " + e.currentTarget.classList.value,
+                  "color: red; background-color: rgba(255 0 0 / 0.2)"
+                );
+              }
+            },
+            true
+          );
+
+          // 버블링 단계
+          div.addEventListener(
+            "click",
+            (e) => {
+              const targetName = e.currentTarget.classList.value;
+
+              if (e.eventPhase === 2) {
+                console.log(
+                  "%c타겟: " + targetName,
+                  "color: orange; background-color: rgba(255 150 0 / 0.1)"
+                );
+              } else {
+                console.log(
+                  "%c버블링: " + targetName,
+                  "color: blue;  background-color: rgba(0 0 255 / 0.2)"
+                );
+              }
+
+              if (targetName === "middle") {
+                console.log("버블링 이벤트 전파 중지");
+                e.stopPropagation();
+              }
+            },
+            false
+          );
+        });
+      }
+    </script>
+  </body>
+</html>
