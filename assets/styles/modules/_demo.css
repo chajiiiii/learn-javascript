@@ -46,3 +46,19 @@ h1 {
     }
   }
 }
+
+.box {
+  border: 4px solid var(--blue-500);
+  padding: 20px;
+  inline-size: 60%;
+
+  &.box1 {
+    background-color: pink;
+  }
+  &.box2 {
+    background-color: lightblue;
+  }
+  &.box3 {
+    background-color: wheat;
+  }
+}
