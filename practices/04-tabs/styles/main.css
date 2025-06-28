@@ -1,11 +1,15 @@
 @layer base, theme, components, utilities;
 
-@import '/assets/styles/common/_normalize.css' layer(base);
-@import '/assets/styles/common/_base.css' layer(base);
+@import "/assets/styles/common/_normalize.css" layer(base);
+@import "/assets/styles/common/_base.css" layer(base);
 
-@import '/assets/styles/common/_theme.css' layer(theme);
-@import './_theme.css' layer(theme);
+@import "/assets/styles/common/_theme.css" layer(theme);
+@import "./_theme.css" layer(theme);
 
-@import './components/_tabs.css' layer(components);
+@import "./components/_tabs.css" layer(components);
 
-@import './_demo.css';
+@import "./_demo.css";
+
+[hidden] {
+  display: none !important;
+}
