@@ -84,32 +84,33 @@
     // });
 
     // JavaScript 객체
-    // const o = {
-    //   num: 0,
-    //   color: "yellow",
-    // };
+    const o = {
+      num: 0,
+      color: "yellow",
+    };
 
-    // const output = document.querySelector("output");
-    // const renderCount = () => {
-    //   output.value = Math.round(o.num);
-    // };
+    const output = document.querySelector("output");
+    const renderCount = () => {
+      output.value = Math.round(o.num);
+      output.style.setProperty("color", o.color);
+    };
 
-    // gsap.to(o, {
-    //   num: 100,
-    //   color: "orange",
-    //   duration: 3,
-    //   repeat: 1,
-    //   yoyo: true,
-    //   // 변경사항 확인 가능
-    //   onUpdate: renderCount,
-    //   // () => {
-    //   // document.querySelector("output").value = Math.round(o.num);
-    //   // },
-    //   onComplete: () => {
-    //     // console.log("finished gsap animation");
-    //     gsap.set(output, { opacity: 0 });
-    //   },
-    // });
+    gsap.to(o, {
+      num: 100,
+      color: "orange",
+      duration: 3,
+      // repeat: 1,
+      // yoyo: true,
+      // 변경사항 확인 가능
+      onUpdate: renderCount,
+      // () => {
+      // document.querySelector("output").value = Math.round(o.num);
+      // },
+      onComplete: () => {
+        // console.log("finished gsap animation");
+        gsap.set(output, { opacity: 0 });
+      },
+    });
 
     // delay ------------------------------
     // repeatDelay
@@ -123,28 +124,28 @@
     // gsap.to(".box.yellow", { rotation: 360, duration: 1, delay: 1 });
 
     // Canvas ------------------------------
-    const canvasElement = document.querySelector(".canvas");
-    const canvas = canvasElement.getContext("2d");
+    // const canvasElement = document.querySelector(".canvas");
+    // const canvas = canvasElement.getContext("2d");
 
-    canvas.fillStyle = "green";
+    // canvas.fillStyle = "green";
 
-    const position = { x: 0, y: 0 };
+    // const position = { x: 0, y: 0 };
 
-    function draw() {
-      canvas.clearRect(0, 0, 400, 400);
+    // function draw() {
+    //   canvas.clearRect(0, 0, 400, 400);
 
-      // redraw
-      canvas.fillRect(position.x, position.y, 100, 100);
-    }
+    //   // redraw
+    //   canvas.fillRect(position.x, position.y, 100, 100);
+    // }
 
-    gsap.to(position, {
-      x: 300,
-      y: 300,
-      duration: 4,
-      onUpdate: draw,
-    });
+    // gsap.to(position, {
+    //   x: 300,
+    //   y: 300,
+    //   duration: 4,
+    //   onUpdate: draw,
+    // });
 
-    draw();
+    // draw();
   }
 
   setTimeout(() => {
