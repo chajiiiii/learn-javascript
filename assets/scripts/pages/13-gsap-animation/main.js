@@ -175,8 +175,63 @@
     // gsap.from(".yellow", { y: 100, opacity: 0, duration: 1, delay: 0.5 });
     // gsap.from(".green", { y: 100, opacity: 0, duration: 1, delay: 1 });
 
+    const main = document.querySelector("main");
+
+    gsap.from(".box", {
+      y: 100,
+      opacity: 0,
+      stagger: 0.1,
+      ease: "power1.out",
+    });
+
+    main.addEventListener("click", (e) => {
+      if (e.target.matches(".box"))
+        gsap.to(".box", {
+          y: -100,
+          scale: 1.2,
+          opacity: 0,
+          // repeat: -1, // -1 은 무한
+
+          // 스태거 객체 전달
+          stagger: {
+            each: 0.3,
+            repeat: 3,
+            yoyo: true,
+          },
+
+          // 스태거 함수로 넘버값(지연값) 반환하기
+          // stagger: (index, target /* list */) => {
+          //   console.log(index, target);
+
+          //   if (target.matches(".green")) {
+          //     // green은 1초 지연
+          //     return 1;
+          //   } else {
+          //     // 각 인덱스 아이템마다 지연 값 설정
+          //     // ex. 0 * 0.2, 1 * 0.2, 2 * 0.2
+          //     return index * 2;
+          //   }
+          // },
+          ease: "power.out(4)",
+        });
+    });
+
+    // const boxes = document.querySelectorAll(".box");
+
+    // for (const box of boxes) {
+    //   box.addEventListener("click", () => {
+    //     gsap.to(".box", {
+    //       y: -100,
+    //       scale: 1.2,
+    //       opacity: 0,
+    //       stagger: 0.1,
+    //       ease: "power.out(4)",
+    //     });
+    //   });
+    // }
+
     // stagger를 설정하면 delay를 따로 안하고 시간차 조정 가능
-    gsap.from(".box", { y: 100, stagger: 0.1, ease: "power.out(4)" });
+    // gsap.from(".box", { y: 100, stagger: 0.1, ease: "power.out(4)" });
   }
 
   setTimeout(animate, 800);
