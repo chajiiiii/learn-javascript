@@ -243,23 +243,29 @@
 (() => {
   function animate() {
     // GSAP의 timeline 인스턴스(객체) 설정
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+      repeat: -1,
+      repeatDelay: 1,
+      yoyo: true,
+      // 기본 값(공통되는 값) 설정. timeline에서만 사용 가능
+      defaults: { opacity: 0, duration: 0.4, ease: "back.inOut(4)" },
+    });
 
     tl
       // add tween
-      .from(".blue", { y: 200, opacity: 0, duration: 0.6 });
+      .from(".blue", { y: 200 });
     tl
       // add tween
-      .from(".green", { y: 200, opacity: 0, duration: 0.6 }, 0);
+      .from(".green", { y: 200 }, 0);
     tl
       // add tween
-      .from(".yellow", { y: 200, opacity: 0, duration: 0.6 }, "<");
+      .from(".yellow", { y: 200 }, "<");
     tl
       // add tween
-      .from(".pink", { y: 200, opacity: 0, duration: 0.6 }, "+=2");
+      .from(".pink", { y: 200 }, "+=2");
     tl
       // add tween
-      .from(".purple", { y: 200, opacity: 0, duration: 0.6, delay: 0.4 });
+      .from(".purple", { y: 200, delay: 0.4 });
   }
 
   setTimeout(animate, 300);
