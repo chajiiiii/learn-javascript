@@ -1,3 +1,4 @@
+// GSAP - Getting Started
 () => {
   {
     // Web Animations API
@@ -169,7 +170,8 @@
   }
 };
 
-(() => {
+// Stagger
+() => {
   function animate() {
     // gsap.from(".blue", { y: 100, opacity: 0, duration: 1 });
     // gsap.from(".yellow", { y: 100, opacity: 0, duration: 1, delay: 0.5 });
@@ -235,4 +237,30 @@
   }
 
   setTimeout(animate, 800);
+};
+
+// Timeline
+(() => {
+  function animate() {
+    // GSAP의 timeline 인스턴스(객체) 설정
+    const tl = gsap.timeline();
+
+    tl
+      // add tween
+      .from(".blue", { y: 200, opacity: 0, duration: 0.6 });
+    tl
+      // add tween
+      .from(".green", { y: 200, opacity: 0, duration: 0.6 }, 0);
+    tl
+      // add tween
+      .from(".yellow", { y: 200, opacity: 0, duration: 0.6 }, "<");
+    tl
+      // add tween
+      .from(".pink", { y: 200, opacity: 0, duration: 0.6 }, "+=2");
+    tl
+      // add tween
+      .from(".purple", { y: 200, opacity: 0, duration: 0.6, delay: 0.4 });
+  }
+
+  setTimeout(animate, 300);
 })();
