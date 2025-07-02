@@ -20,27 +20,28 @@
       position: relative;
       width: 100%;
       height: 100%;
-      
+      transition: transform 0.3s var(--ease-in-out-expo);
+
       .carousel__content {
         user-select: none;
         position: absolute;
         width: inherit;
         height: inherit;
-        
+
         &:nth-child(2) {
           left: var(--width);
         }
-        
+
         &:nth-child(3) {
           left: calc(var(--width) * 2);
         }
-        
+
         & > a {
           display: block;
           width: inherit;
           height: inherit;
         }
-        
+
         img {
           width: inherit;
           height: inherit;
@@ -54,12 +55,12 @@
   .carousel__button {
     padding: 0.25em;
     border: none;
-    
+
     svg {
       fill: var(--color-default-state);
     }
-    
-    &:hover svg, 
+
+    &:hover svg,
     &:active svg {
       fill: var(--color-hover-state);
     }
@@ -68,27 +69,25 @@
   .carousel__indicators {
     grid-column: 1 / -1;
     justify-self: center;
-    
+
     .carousel__indicator {
       width: 1em;
       height: 1em;
       padding: 0;
       border-radius: 100%;
       background-color: var(--color-default-state);
-      
+
       & + .carousel__indicator {
         margin-left: 1em;
       }
-      
+
       &:hover {
         background-color: var(--color-hover-state);
       }
-      
+
       &.is-selected {
         background-color: var(--color-selected-state);
       }
     }
   }
 }
-
-
