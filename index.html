@@ -81,172 +81,183 @@
       defer
       src="./assets/scripts/learn/60-reduce-array-method.js"
     ></script> -->
-    <script
+    <!-- <script
       defer
       src="./assets/scripts/learn/61-loop-object-properties.js"
+    ></script> -->
+    <script
+      defer
+      src="./assets/scripts/learn/62-implicit-object-return.js"
     ></script>
     <style></style>
   </head>
   <body>
     <h1>JavaScript</h1>
 
-    <h1 id="static">
-      <a
-        href="https://developer.mozilla.org/ko/docs/Web/JavaScript"
-        target="_blank"
-        rel="noopener noreferrer"
-        lang="en"
-      >
-        JavaScript
-      </a>
-    </h1>
-
-    <div hidden class="ball"></div>
-
-    <ul hidden class="faq-list">
-      <li><a href="/faq/shipping">배송 관련 문의</a></li>
-      <li><a href="/faq/payment">결제 방법 안내</a></li>
-      <li><a href="/faq/return">반품 및 환불 정책</a></li>
-      <li><a href="/faq/account">계정 및 개인정보</a></li>
-      <li><a href="/faq/coupon">쿠폰 및 프로모션</a></li>
-    </ul>
-
-    <article hidden>
-      <h1>JavaScript</h1>
-
-      <div id="star-wars">
-        <div class="character" data-type="good-guy">
-          <span>루크</span> <span>스카이워커</span>
-        </div>
-        <div class="character" data-type="good-guy">
-          <b>요</b>
-          <i>다</i>
-        </div>
-        <div class="character" data-type="villain">
-          <span class="me"
-            ><em><span class="in">다스</span></em></span
-          >
-          <strong>베이더</strong>
-        </div>
-      </div>
-    </article>
-
-    <section hidden class="life-tips">
-      <h2>생활 상식</h2>
-      <p class="para">
-        배터리를 오래 쓰고 싶다면 100% 충전보다는 80~90%에서 사용을 멈추는 것이
-        좋습니다.
-      </p>
-      <p class="para">
-        전자레인지에 금속 용기를 넣으면 화재 위험이 있으니 절대 사용하지 마세요.
-      </p>
-      <p class="para">
-        흰 셔츠의 얼룩은 세탁 전에 식초나 베이킹소다로 미리 처리하면 잘
-        지워집니다.
-      </p>
-    </section>
-
-    <button hidden type="button" data-name="change-bg-color">
-      배경색 변경
-    </button>
-
-    <a
-      hidden
-      href="https://naver.com"
-      target="_blank"
-      rel="noopenner noreferrer"
-    ></a>
-
-    <label hidden for="agreement"
-      ><input type="checkbox" id="agreement" name="agreement" />동의</label
-    >
-
-    <form hidden data-learn="form" method="GET" action="https://google.com">
-      <!-- 검색 필드 -->
-      <div>
-        <label for="search-term">검색어</label>
-        <input
-          type="search"
-          name="search-term"
-          id="search-term"
-          placeholder="검색어를 입력"
-        />
-      </div>
-      <div style="margin-block-start: 8px">
-        <button type="submit">검색</button>
-        <button type="reset">초기화</button>
-      </div>
-    </form>
-
-    <div hidden class="box box1">
-      <span>박스 1</span>
-      <div class="box box2">
-        <span>박스 2</span>
-        <div class="box box3">
-          <span>박스 3</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- <ul hidden class="link-list">
-      <li><a href="/news">📢 최신 뉴스 보기</a></li>
-      <li><a href="/tutorials">📘 튜토리얼 모음</a></li>
-      <li><a href="/community">💬 커뮤니티 참여</a></li>
-      <li><a href="/resources">📁 개발 자료실</a></li>
-      <li><a href="/contact">📮 문의하기</a></li>
-    </ul> -->
-
-    <div hidden>
-      <header data-index="1">
-        <button type="button">button in header 1</button>
-      </header>
-
-      <header data-index="2">
-        <button type="button">button in header 2</button>
-      </header>
-
-      <div
-        id="contoller"
-        role="group"
-        style="display: flex; gap: 4px; margin-block: 12px"
-      >
-        <button type="button" data-role="add-event">이벤트 추가</button>
-        <button type="button" data-role="remove-event">이벤트 제거</button>
-        <button type="button" data-role="tester">이벤트 추가 대기중...</button>
-        <button type="button" data-role="once-event">1회만 이벤트 설정</button>
-      </div>
-    </div>
-
-    <ul hidden class="link-list">
-      <li>
-        <a href="/news">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            a
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M15 18h-5" />
-            <path d="M18 14h-8" />
-            <path
-              d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"
-            />
-            <rect width="8" height="4" x="10" y="6" rx="1" />
-          </svg>
-          <span>최신 뉴스 보기</span>
+    <main hidden>
+      <h1 id="static">
+        <a
+          href="https://developer.mozilla.org/ko/docs/Web/JavaScript"
+          target="_blank"
+          rel="noopener noreferrer"
+          lang="en"
+        >
+          JavaScript
         </a>
-      </li>
-      <li><a href="/tutorials">📘 튜토리얼 모음</a></li>
-      <li><a href="/community">💬 커뮤니티 참여</a></li>
-      <li><a href="/resources">📁 개발 자료실</a></li>
-      <li><a href="/contact">📮 문의하기</a></li>
-    </ul>
+      </h1>
+
+      <div hidden class="ball"></div>
+
+      <ul hidden class="faq-list">
+        <li><a href="/faq/shipping">배송 관련 문의</a></li>
+        <li><a href="/faq/payment">결제 방법 안내</a></li>
+        <li><a href="/faq/return">반품 및 환불 정책</a></li>
+        <li><a href="/faq/account">계정 및 개인정보</a></li>
+        <li><a href="/faq/coupon">쿠폰 및 프로모션</a></li>
+      </ul>
+
+      <article hidden>
+        <h1>JavaScript</h1>
+
+        <div id="star-wars">
+          <div class="character" data-type="good-guy">
+            <span>루크</span> <span>스카이워커</span>
+          </div>
+          <div class="character" data-type="good-guy">
+            <b>요</b>
+            <i>다</i>
+          </div>
+          <div class="character" data-type="villain">
+            <span class="me"
+              ><em><span class="in">다스</span></em></span
+            >
+            <strong>베이더</strong>
+          </div>
+        </div>
+      </article>
+
+      <section hidden class="life-tips">
+        <h2>생활 상식</h2>
+        <p class="para">
+          배터리를 오래 쓰고 싶다면 100% 충전보다는 80~90%에서 사용을 멈추는
+          것이 좋습니다.
+        </p>
+        <p class="para">
+          전자레인지에 금속 용기를 넣으면 화재 위험이 있으니 절대 사용하지
+          마세요.
+        </p>
+        <p class="para">
+          흰 셔츠의 얼룩은 세탁 전에 식초나 베이킹소다로 미리 처리하면 잘
+          지워집니다.
+        </p>
+      </section>
+
+      <button hidden type="button" data-name="change-bg-color">
+        배경색 변경
+      </button>
+
+      <a
+        hidden
+        href="https://naver.com"
+        target="_blank"
+        rel="noopenner noreferrer"
+      ></a>
+
+      <label hidden for="agreement"
+        ><input type="checkbox" id="agreement" name="agreement" />동의</label
+      >
+
+      <form hidden data-learn="form" method="GET" action="https://google.com">
+        <!-- 검색 필드 -->
+        <div>
+          <label for="search-term">검색어</label>
+          <input
+            type="search"
+            name="search-term"
+            id="search-term"
+            placeholder="검색어를 입력"
+          />
+        </div>
+        <div style="margin-block-start: 8px">
+          <button type="submit">검색</button>
+          <button type="reset">초기화</button>
+        </div>
+      </form>
+
+      <div hidden class="box box1">
+        <span>박스 1</span>
+        <div class="box box2">
+          <span>박스 2</span>
+          <div class="box box3">
+            <span>박스 3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <ul hidden class="link-list">
+        <li><a href="/news">📢 최신 뉴스 보기</a></li>
+        <li><a href="/tutorials">📘 튜토리얼 모음</a></li>
+        <li><a href="/community">💬 커뮤니티 참여</a></li>
+        <li><a href="/resources">📁 개발 자료실</a></li>
+        <li><a href="/contact">📮 문의하기</a></li>
+      </ul> -->
+
+      <div hidden>
+        <header data-index="1">
+          <button type="button">button in header 1</button>
+        </header>
+
+        <header data-index="2">
+          <button type="button">button in header 2</button>
+        </header>
+
+        <div
+          id="contoller"
+          role="group"
+          style="display: flex; gap: 4px; margin-block: 12px"
+        >
+          <button type="button" data-role="add-event">이벤트 추가</button>
+          <button type="button" data-role="remove-event">이벤트 제거</button>
+          <button type="button" data-role="tester">
+            이벤트 추가 대기중...
+          </button>
+          <button type="button" data-role="once-event">
+            1회만 이벤트 설정
+          </button>
+        </div>
+      </div>
+
+      <ul hidden class="link-list">
+        <li>
+          <a href="/news">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              a
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M15 18h-5" />
+              <path d="M18 14h-8" />
+              <path
+                d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"
+              />
+              <rect width="8" height="4" x="10" y="6" rx="1" />
+            </svg>
+            <span>최신 뉴스 보기</span>
+          </a>
+        </li>
+        <li><a href="/tutorials">📘 튜토리얼 모음</a></li>
+        <li><a href="/community">💬 커뮤니티 참여</a></li>
+        <li><a href="/resources">📁 개발 자료실</a></li>
+        <li><a href="/contact">📮 문의하기</a></li>
+      </ul>
+    </main>
 
     <!-- <script src="./assets/scripts/debug/example.js"></script> -->
     <!-- <script src="./assets/scripts/learn/30-array.js"></script> -->
