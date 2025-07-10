@@ -111,13 +111,108 @@
       defer
       src="./assets/scripts/learn/69-remove-element-from-dom.js"
     ></script> -->
-    <script defer src="./assets/scripts/learn/70-switch-statement.js"></script>
+    <!-- <script defer src="./assets/scripts/learn/70-switch-statement.js"></script> -->
+    <!-- <script defer src="./assets/scripts/learn/70-switch-statement.js"></script> -->
+    <script defer src="./assets/scripts/learn/71-form-field-event.js"></script>
     <style></style>
   </head>
   <body>
     <h1 style="display: flex">🌈JavaScript</h1>
 
-    <section></section>
+    <form class="form">
+      <p>어떤 과일을 좋아하세요? (하나만 체크 가능)</p>
+      <div class="radio-button">
+        <input type="radio" name="favorite-fruit" id="apple" value="사과" />
+        <label for="apple">🍎 사과</label>
+      </div>
+      <div class="radio-button">
+        <input
+          type="radio"
+          name="favorite-fruit"
+          id="grape"
+          value="포도"
+          checked
+        />
+        <label for="grape">🍇 포도</label>
+      </div>
+      <div class="radio-button">
+        <input type="radio" name="favorite-fruit" id="lemon" value="레몬" />
+        <label for="lemon">🍋 레몬</label>
+      </div>
+      <div class="radio-button">
+        <input type="radio" name="favorite-fruit" id="none" value="없음" />
+        <label for="none">😝 없음</label>
+      </div>
+
+      <div
+        class="textarea"
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          margin-block: 20px;
+        "
+      >
+        <label for="comment">댓글</label>
+        <textarea
+          id="comment"
+          name="comment"
+          placeholder="댓글을 작성해주세요."
+          cols="30"
+          rows="5"
+        ></textarea>
+      </div>
+    </form>
+
+    <div hidden>
+      <form action="/subscribe" method="POST">
+        <div>
+          <label for="email">이메일</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="user@example.com"
+            required
+          />
+        </div>
+        <button type="submit">구독</button>
+      </form>
+
+      <script>
+        const form = document.querySelector("form");
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          console.log("submitting");
+
+          // form.submit()
+
+          // 서버와 데이터 통신
+          // 비동기(AJAX) 방식으로 처리
+          // XMLHttpRequest 객체 사용
+          // Promise 객체 사용
+        });
+
+        {
+          const form = document.querySelector("form");
+          const emailInput = document.getElementById("email");
+
+          emailInput.addEventListener("change", () =>
+            console.log("chang event")
+          );
+          emailInput.addEventListener("input", () =>
+            console.log("input event")
+          );
+          emailInput.addEventListener("focus", () =>
+            console.log("focus event")
+          );
+          emailInput.addEventListener("focusin", () =>
+            console.log("focusin event")
+          );
+        }
+      </script>
+    </div>
 
     <main hidden>
       <!-- beforebegin : before() -->
