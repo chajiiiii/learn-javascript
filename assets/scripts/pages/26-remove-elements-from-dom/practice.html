@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-
   <head>
     <title>DOM에서 요소 제거</title>
     <style>
@@ -27,8 +26,9 @@
         border-block-end: 1px solid #aaa;
       }
 
-      .members, .reviews {
-        list-style-type: '';
+      .members,
+      .reviews {
+        list-style-type: "";
         padding-inline-start: 0;
         display: grid;
         gap: 8px;
@@ -62,9 +62,13 @@
 
       .reviews {
         color: hsl(220 70% 35%);
-        
+
         li {
           border-color: currentColor;
+
+          &:has([aria-disabled="true"]) {
+            color: hsla(0 0% 15% / 0.5);
+          }
         }
 
         button {
@@ -77,8 +81,12 @@
           inline-size: 20px;
           block-size: 20px;
 
-          &:hover {
-            background-color: hsla(200 50% 50% / 20%);
+          &[aria-disabled="true"] {
+            cursor: not-allowed;
+          }
+
+          &:hover:not([aria-disabled="true"]) {
+            background-color: hsla(200 50% 50% / 50%);
           }
 
           svg {
@@ -103,9 +111,8 @@
   </head>
 
   <body>
-
     <section id="practice1">
-      <h2>🧑‍🤝‍🧑 팀 멤버</h2>	
+      <h2>🧑‍🤝‍🧑 팀 멤버</h2>
       <ul class="members">
         <li>이지아 <button type="button">제거</button></li>
         <li>박현일 <button type="button">제거</button></li>
@@ -118,32 +125,106 @@
     <script>
       // 실습 1. 멤버 제거
       // 각 멤버의 "제거" 버튼 클릭 시, 해당 멤버가 제거되도록 구현합니다.
-      ; (() => {
-        
-      })()
+      () => {
+        const practice = document.getElementById("practice1");
+        const members = practice.querySelector(".members");
+
+        members.addEventListener("click", ({ target }) => {
+          const button = target.closest("button");
+          if (!button) return;
+
+          // 제거할요소.부모요소.removeChild()
+          const parent = button.parentElement;
+          parent.parentElement.removeChild(parent);
+
+          // 버튼의 부모 요소 제거
+          // button.parentElement.remove();
+
+          if (members.children.length === 0) {
+            members.innerHTML = "";
+          }
+        });
+      };
     </script>
 
     <hr />
 
     <article id="practice2">
-      <h2>💬 리뷰 목록</h2>	
+      <h2>💬 리뷰 목록</h2>
       <ul class="reviews">
         <li>
           맛이 정말 좋아요!
-          <button type="button" aria-disabled="true" aria-label="위로 이동" title="위로 이동">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-chevron-up-icon lucide-square-chevron-up"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m8 14 4-4 4 4"/></svg>
+          <button
+            type="button"
+            aria-disabled="true"
+            aria-label="위로 이동"
+            title="위로 이동"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-square-chevron-up-icon lucide-square-chevron-up"
+            >
+              <rect width="18" height="18" x="3" y="3" rx="2" />
+              <path d="m8 14 4-4 4 4" />
+            </svg>
           </button>
         </li>
         <li>
           배송도 빠르고 포장도 깔끔해요.
-          <button type="button" aria-disabled="false" aria-label="위로 이동" title="위로 이동">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-chevron-up-icon lucide-square-chevron-up"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m8 14 4-4 4 4"/></svg>
+          <button
+            type="button"
+            aria-disabled="false"
+            aria-label="위로 이동"
+            title="위로 이동"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-square-chevron-up-icon lucide-square-chevron-up"
+            >
+              <rect width="18" height="18" x="3" y="3" rx="2" />
+              <path d="m8 14 4-4 4 4" />
+            </svg>
           </button>
         </li>
         <li>
           조리법이 쉽고 간편해서 좋아요~
-          <button type="button" aria-disabled="false" aria-label="위로 이동" title="위로 이동">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-chevron-up-icon lucide-square-chevron-up"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m8 14 4-4 4 4"/></svg>
+          <button
+            type="button"
+            aria-disabled="false"
+            aria-label="위로 이동"
+            title="위로 이동"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-square-chevron-up-icon lucide-square-chevron-up"
+            >
+              <rect width="18" height="18" x="3" y="3" rx="2" />
+              <path d="m8 14 4-4 4 4" />
+            </svg>
           </button>
         </li>
       </ul>
@@ -154,11 +235,88 @@
       // 각 리뷰의 "위로 이동" 버튼을 누르면 위 요소와 위치가 바뀌도록 구현합니다.
       // - 맨 위의 리뷰는 비활성 상태(`aria-disabled="true"`)로 전환
       // - 비활성 상태인 경우, 초점은 이동되나 작동되지 않아야 함
-      ; (() => {
-        
-      })()
+      () => {
+        const practice = document.getElementById("practice2");
+
+        // 이벤트 위임
+        practice.addEventListener("click", ({ target }) => {
+          // 이벤트 대상(버튼) 찾기
+          const button = target.closest("button");
+
+          // 이벤트 대상이 비활성 상태인지 여부
+          // 이벤트 대상이 버튼이 아닌 경우, 거짓으로 평가
+          // 옵셔널 체이닝(?.)을 사용해 대상이 null일 경우 거짓으로 평가
+
+          const isButtonDisabled =
+            button?.getAttribute("aria-disabled") === "true";
+
+          // let isButtonDisabled = false
+          // if (button && button.getAttribute('aria-disabled') === 'true') {
+          //   isButtonDisabled = true
+          // }
+
+          // 이벤트 대상이 버튼이 아니거나,
+          // 이벤트 대상이 버튼이지만 비활성 상태인 경우
+          // 빠른 반환으로 함수 종료
+          if (!button || isButtonDisabled) return;
+
+          // 이동할 리뷰 목록 아이템 (클릭한 버튼의 부모 요소)
+          const moveItem = button.parentElement;
+
+          // 대상 리뷰 목록 아이템 (클릭한 버튼의 부모 요소의 이전 요소)
+          const targetItem = moveItem.previousElementSibling;
+
+          // 대상 리뷰 목록 아이템이 없을 경우 함수 종료
+          if (!targetItem) return;
+
+          // 대상 리뷰 목록 아이템의 이전 요소 존재 여부
+          const targetItemIsFirst = !targetItem.previousElementSibling;
+
+          // 대상 리뷰 목록 아이템의 이전 위치로 이동
+          targetItem.before(moveItem);
+
+          // 대상 리뷰 목록 아이템이 가장 상위 위치였다면
+          if (targetItemIsFirst) {
+            // 이동한 리뷰 목록 아이템의 버튼 비활성 상태 변경 (비활성 상태로)
+            button.setAttribute("aria-disabled", "true");
+            // 대상 리뷰 목록 아이템의 버튼 찾기
+            const targetItemButton = targetItem.querySelector("button");
+            // 대상 리뷰 목록 아이템의 버튼 비활성 상태 변경 (활성 상태로)
+            targetItemButton.setAttribute("aria-disabled", "false");
+          }
+
+          // 위치 변경 후에도 초점 이동 상태가 유지되도록
+          // 이동한 리뷰 목록 아이템의 버튼에 초점 이동
+          button.focus();
+        });
+      };
+
+      (() => {
+        // 연습
+        const practice = document.getElementById("practice2");
+
+        practice.addEventListener("click", (e) => {
+          const button = e.target.closest("button");
+
+          const moveItem = button.parentElement;
+          const targetItem = moveItem.previousElementSibling;
+
+          const isButtonDisabled =
+            button?.getAttribute("aria-disabled") === "true";
+
+          if (!button || isButtonDisabled) return;
+
+          targetItem.before(moveItem);
+
+          const isFirstItem = !moveItem.previousElementSibling;
+
+          if (isFirstItem) {
+            button.setAttribute("aria-disabled", "true");
+            const targetItemButton = targetItem.querySelector("button");
+            targetItemButton.setAttribute("aria-disabled", "false");
+          }
+        });
+      })();
     </script>
-
   </body>
-
 </html>
