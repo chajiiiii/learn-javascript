@@ -88,7 +88,7 @@
 // 쓰로틀 (Throttle)
 // 특정 함수의 실행 빈도를 제한하는 방법으로
 // 스크롤 이벤트나, 창크기 조절 같은 빈번한 이벤트 처리에 유용합니다.
-() => {
+(() => {
   // throttle 함수 작성
   function throttle(callback, delay = 400 /* 0.4s */) {
     // 조건 처리를 위한 지역 변수
@@ -107,6 +107,30 @@
         }, delay);
       }
     };
+  }
+
+  // throttle 보편적 예시
+  {
+    function throttle(callback, delay = 300) {
+      let lastTime = 0;
+
+      return function (...args) {
+        const now = Date.now();
+
+        if (now - lastTime >= delay) {
+          callback.apply(this, args); // `this`를 유지하면서 호출
+          lastTime = now;
+        }
+      };
+    }
+
+    let count = 0;
+
+    function onScroll() {
+      console.log(`Scroll event fired ${count++}`);
+    }
+
+    window.addEventListener("scroll", throttle(onScroll, 200));
   }
 
   // 스크롤(scroll) 이벤트 ---------------------------------------------------
@@ -139,18 +163,19 @@
     console.log(`%c${globalThis.innerWidth}`, "color: hotpink");
   });
 
+  // throttle 사용
   globalThis.addEventListener(
     "resize",
     throttle(() => {
       console.log("throttle", globalThis.innerWidth);
     })
   );
-};
+})();
 
 // 디바운스 (Debounce)
 // 연속된 이벤트를 그룹화하여 마지막 이벤트 발생 후, 일정 시간이 지나면 한 번만 처리하는 기법입니다.
 // 검색 입력이나 자동 저장과 같은 기능에 유용합니다.
-(() => {
+() => {
   function debounce(callback, delay = 300) {
     // 디바운싱을 위한 정리 변수
     let cleanup; // undefined
@@ -170,6 +195,37 @@
     };
   }
 
+  // debounce 보편적 예시
+  {
+    // 디바운스 함수
+    function debounce(callback, delay = 300) {
+      let timeoutId;
+
+      return function (...args) {
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(() => {
+          callback.apply(this, args);
+        }, delay);
+      };
+    }
+
+    // 실제 사용할 콜백 함수 (예: 검색 요청)
+    function handleSearch(event) {
+      const keyword = event.target.value.trim();
+      if (keyword) {
+        console.log(`🔍 검색어: ${keyword}`);
+        // 여기에서 fetch(`/search?q=${keyword}`) 같이 API 요청 가능
+      }
+    }
+
+    // 이벤트 리스너 등록 (디바운스 적용)
+    const searchInput = document.getElementById("search");
+    searchInput.addEventListener("input", debounce(handleSearch, 500));
+  }
+
+  const input = document.querySelector("input");
+
   let debounceInputCount = 0;
   input.addEventListener(
     "input",
@@ -181,11 +237,66 @@
     }, 600)
   );
 
-  const input = document.querySelector("input");
-
   let inputCount = 0;
 
   input.addEventListener("input", () => {
     console.log("일반: 검색 입력 횟수 = " + inputCount++);
+  });
+};
+
+// 실습
+// 알림 설정 기능, 알림 취소 기능, 알림 설정 초기화 기능을 구현합니다.
+
+// - `알림 설정` 버튼을 클릭하면, 2초 뒤에 알림이 화면에 표시되도록 설정합니다.
+// - `알림 취소` 버튼을 누르면, 설정된 알림을 취소합니다.
+// - `알림 초기화` 버튼을 클릭하면, 화면에 표시된 알림 메시지를 감춥니다.
+// - 각 버튼을 누르면 각 알림 상태(`설정`, `취소`, `초기화`)를 화면에 표시합니다.
+(() => {
+  const practice = document.getElementById("practice1");
+  const settingButton = practice.querySelector("[data-id='showNotification']");
+  const cancelButton = practice.querySelector("[data-id='cancelNotification']");
+  const resetButton = practice.querySelector("[data-id='resetNotification']");
+  const notification = practice.querySelector("[data-id='notification']");
+
+  let timeoutId;
+
+  practice.addEventListener("click", (e) => {
+    const target = e.target.closest("button");
+
+    // if (!target) return;
+
+    // if (target === settingButton) {
+    //   timeoutId = setTimeout(() => {
+    //     notification.hidden = false;
+    //   }, 2000);
+    // }
+
+    // if (target === cancelButton) {
+    //   clearTimeout(timeoutId);
+    //   notification.textContent = "알림 취소";
+    // }
+
+    // if (target === resetButton) {
+    //   clearTimeout(timeoutId);
+    //   notification.textContent = "알림 초기화";
+    // }
+
+    switch (target) {
+      case settingButton:
+        timeoutId = setTimeout(() => {
+          notification.hidden = false;
+        }, 2000);
+        break;
+
+      case cancelButton:
+        clearTimeout(timeoutId);
+        notification.textContent = "알림 취소";
+        break;
+
+      case resetButton:
+        clearTimeout(timeoutId);
+        notification.textContent = "알림 초기화";
+        break;
+    }
   });
 })();

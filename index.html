@@ -116,7 +116,7 @@
     <!-- <script defer src="./assets/scripts/learn/70-switch-statement.js"></script> -->
     <!-- <script defer src="./assets/scripts/learn/71-form-field-event.js"></script> -->
     <!-- <script defer src="./assets/scripts/learn/72-xss-sanitize.js"></script> -->
-    <!-- <script defer src="./assets/scripts/learn/73-set-timeout.js"></script> -->
+    <script defer src="./assets/scripts/learn/73-set-timeout.js"></script>
     <!-- <script defer src="./assets/scripts/learn/74-set-interval.js"></script> -->
     <!-- <script defer src="./assets/scripts/learn/75-async-js-ajax.js"></script> -->
     <!-- <script defer src="./assets/scripts/learn/76-async-js-json.js"></script> -->
@@ -125,52 +125,76 @@
       src="./assets/scripts/learn/77-async-js-fetch-api.js"
     ></script> -->
     <!-- <script defer src="./assets/scripts/learn/78-async-js-promise.js"></script> -->
-    <script
+    <!-- <script
       defer
       src="./assets/scripts/learn/79-async-js-fetch-data.js"
-    ></script>
+    ></script> -->
+    <!-- <script
+      defer
+      src="./assets/scripts/learn/80-async-js-request-response.js"
+    ></script> -->
+    <!-- <script
+      defer
+      src="./assets/scripts/learn/81-async-js-create-request-update-delete.js"
+    ></script> -->
     <style></style>
   </head>
   <body>
     <h1 style="display: flex">🌈JavaScript</h1>
 
-    <div class="demo">
-      <form autocomplete="off" novalidate>
-        <input type="search" name="search" aria-label="검색" />
-        <select name="category" aria-label="카테고리">
-          <option value="">모든 상품</option>
-          <option value="hats">모자</option>
-          <option value="sneakers">신발</option>
-          <option value="jackets">자켓</option>
-          <option value="mens">남성 의류</option>
-          <option value="womens">여성 의류</option>
-        </select>
-        <button type="submit">검색</button>
-      </form>
-      <p>총 <span class="products-count">{000}</span>개의 상품을 찾았습니다.</p>
-      <div
-        hidden
-        role="status"
-        style="color: #073037; font-weight: 700; font-size: 1.45rem"
-      >
-        데이터 로딩 중입니다...
+    <section id="practice1">
+      <h2>알림 메시지 시스템</h2>
+      <p>버튼을 클릭하여 3초 후 알림을 설정하거나 취소해보세요.</p>
+      <div role="group">
+        <button type="button" data-id="showNotification">알림 설정</button>
+        <button type="button" data-id="cancelNotification">알림 취소</button>
+        <button type="button" data-id="resetNotification">알림 초기화</button>
       </div>
-      <ul
-        class="products"
-        style="display: grid; grid-template-columns: repeat(4, 1fr)"
-      >
-        <li>{데이터 기반 리스트 렌더링}</li>
-      </ul>
-      <div
-        role="alert"
-        style="color: #db172b; font-weight: 700; font-size: 1.45rem"
-        hidden
-      >
-        {오류 메시지 출력}
+      <div hidden data-id="notification">
+        <strong>알림:</strong> 2초가 지났습니다!
       </div>
-    </div>
+      <div role="status" data-id="status" aria-live="polite"></div>
+    </section>
 
     <main hidden>
+      <div class="demo">
+        <form autocomplete="off" novalidate>
+          <input type="search" name="search" aria-label="검색" />
+          <select name="category" aria-label="카테고리">
+            <option value="">모든 상품</option>
+            <option value="hats">모자</option>
+            <option value="sneakers">신발</option>
+            <option value="jackets">자켓</option>
+            <option value="mens">남성 의류</option>
+            <option value="womens">여성 의류</option>
+          </select>
+          <button type="submit">검색</button>
+        </form>
+        <p>
+          총 <span class="products-count">{000}</span>개의 상품을 찾았습니다.
+        </p>
+        <div
+          hidden
+          role="status"
+          style="color: #073037; font-weight: 700; font-size: 1.45rem"
+        >
+          데이터 로딩 중입니다...
+        </div>
+        <ul
+          class="products"
+          style="display: grid; grid-template-columns: repeat(4, 1fr)"
+        >
+          <li>{데이터 기반 리스트 렌더링}</li>
+        </ul>
+        <div
+          role="alert"
+          style="color: #db172b; font-weight: 700; font-size: 1.45rem"
+          hidden
+        >
+          {오류 메시지 출력}
+        </div>
+      </div>
+
       <div role="alert" hidden>오류 메세지 출력</div>
 
       <ul class="repos-list">
