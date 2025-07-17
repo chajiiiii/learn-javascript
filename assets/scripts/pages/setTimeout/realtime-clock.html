@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>실시간 시계</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: white;
+      }
+
+      .clock-container {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 50px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .clock-headline {
+        font-size: 32px;
+      }
+
+      .digital-clock {
+        display: block;
+        font-size: 4rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        font-family: "Courier New", monospace;
+      }
+
+      .date-display {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+      }
+
+      .controls {
+        margin-top: 30px;
+      }
+
+      button {
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 25px;
+        cursor: pointer;
+        margin: 0 10px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .start-button {
+        background-color: #4ecdc4;
+      }
+
+      .stop-button {
+        background-color: #e74c3c;
+      }
+
+      .status {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .timezone-selector {
+        margin-top: 20px;
+      }
+
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <article class="clock-container">
+      <h2 class="clock-headline">실시간 디지털 시계</h2>
+      <time datetime="00:00:00" class="digital-clock" data-id="clock"
+        >00:00:00</time
+      >
+      <time datetime="2025-01-01" class="date-display" data-id="date"
+        >2025년 1월 1일 월요일</time
+      >
+      <div class="timezone-selector">
+        <label for="timezone">시간대: </label>
+        <select id="timezone">
+          <option value="Asia/Seoul">서울 (KST)</option>
+          <option value="America/New_York">뉴욕 (EST)</option>
+          <option value="Europe/London">런던 (GMT)</option>
+          <option value="Asia/Tokyo">도쿄 (JST)</option>
+        </select>
+      </div>
+      <div class="controls" role="group">
+        <button type="button" data-id="startButton" class="start-button">
+          시작
+        </button>
+        <button type="button" data-id="stopButton" class="stop-button">
+          정지
+        </button>
+      </div>
+      <div role="status" aria-live="polite" class="status" data-id="status">
+        시계가 실행 중입니다
+      </div>
+    </article>
+
+    <script>
+      // 여기에 JavaScript 코드를 작성하세요.
+
+      // - 시간대(Timezone)를 선택하면 해당 시간대로 변경됩니다.
+      // - 시간대에 맞는 시간 또는 날짜 정보를 화면에 표시합니다.
+      // - `시작` 버튼을 누르면 시간을 1초마다 업데이트 합니다.
+      // - `정지` 버튼을 누르면 시간 업데이트를 멈춥니다.
+      // - 시계 실행 상태를 화면에 표시합니다. (`실행` 또는 `정지` 상태)
+
+      const timeDisplay = document.querySelector("[data-id='clock']");
+      const dateDisplay = document.querySelector("[data-id='date']");
+      const controls = document.querySelector(".controls");
+      const status = document.querySelector(".status");
+
+      function setTime() {
+        // 3. Date 객체를 사용하여 현재 시간과 날짜를 가져오기
+        const dateObj = new Date();
+        const hour = dateObj.getHours();
+        const minute = dateObj.getMinutes();
+        const second = dateObj.getSeconds();
+        const year = dateObj.getFullYear();
+        const month = dateObj.getMonth();
+        const date = dateObj.getDate();
+        const day = dateObj.getDay();
+        let dayKorean;
+
+        switch (day) {
+          case 0:
+            dayKorean = "일";
+            break;
+          case 1:
+            dayKorean = "월";
+            break;
+          case 2:
+            dayKorean = "화";
+            break;
+          case 3:
+            dayKorean = "수";
+            break;
+          case 4:
+            dayKorean = "목";
+            break;
+          case 5:
+            dayKorean = "금";
+            break;
+          case 6:
+            dayKorean = "토";
+            break;
+        }
+
+        let currentTime = `${hour.toString().padStart(2, "0")}:${minute
+          .toString()
+          .padStart(2, "0")}:${second.toString().padStart(2, "0")}`;
+        let currentDate = `${year}년 ${month}월 ${date}일 ${dayKorean}요일 `;
+        timeDisplay.textContent = currentTime;
+        timeDisplay.setAttribute("datetime", currentTime);
+        dateDisplay.textContent = currentDate;
+        dateDisplay.setAttribute(
+          "datetime",
+          `${year}-${month.toString().padStart(2, "0")}-${date}`
+        );
+      }
+
+      let intervalId;
+
+      controls.addEventListener("click", (e) => {
+        const button = e.target.closest("button");
+        const startButton = controls.querySelector(".start-button");
+        const stopButton = controls.querySelector(".stop-button");
+
+        // 1. setInterval()을 사용하여 1초마다 현재 시간을 업데이트
+        if (button === startButton) {
+          intervalId = setInterval(setTime, 1000);
+          status.textContent = "시계가 실행 중입니다";
+        }
+
+        // 2. clearInterval()을 사용하여 시계를 정지
+        if (button === stopButton) {
+          clearInterval(intervalId);
+          intervalId = null;
+          status.textContent = "시계가 정지 상태입니다";
+        }
+      });
+
+      // 4. 시간대 변경 기능 구현
+    </script>
+  </body>
+</html>
